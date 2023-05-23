@@ -1,9 +1,9 @@
 package com.fate.poitl.example;
 
 import com.deepoove.poi.XWPFTemplate;
+import com.fate.poitl.utils.PathUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.ResourceUtils;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -25,7 +25,7 @@ public class TextExample {
      */
     @Test
     public void testTitle() throws IOException {
-        XWPFTemplate template = XWPFTemplate.compile(ResourceUtils.getFile("classpath:wordTemplate/text/hello_poi_tl.docx")).render(
+        XWPFTemplate template = XWPFTemplate.compile(PathUtils.getWordTemplateTextUrl("hello_poi_tl.docx")).render(
                 new HashMap<String, Object>(){{
                     put("title", "Hi, poi-tl Word模板引擎");
                 }});

@@ -18,6 +18,7 @@
         <fastjson.version>2.0.26</fastjson.version>
         <commons-lang3.version>3.3.2</commons-lang3.version>
         <logback.version>1.2.3</logback.version>
+        <spring.el.version>5.3.18</spring.el.version>
     </properties>
 
     <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
@@ -51,6 +52,12 @@
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi-ooxml</artifactId>
                 <version>${apache.poi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${spring.el.version}</version>
             </dependency>
 
             <!-- word转pdf开源库-->

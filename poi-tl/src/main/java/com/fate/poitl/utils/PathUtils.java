@@ -1,8 +1,5 @@
 package com.fate.poitl.utils;
 
-import org.springframework.util.ResourceUtils;
-
-import java.io.FileNotFoundException;
 
 /**
  * @author lgb
@@ -11,12 +8,12 @@ import java.io.FileNotFoundException;
  */
 public class PathUtils {
 
-    public static String getWordTemplateImageUrl(String fileName) throws FileNotFoundException {
-        return ResourceUtils.getFile("classpath:wordTemplate/image/" + fileName).getAbsolutePath();
+    public static String getWordTemplateImageUrl(String fileName) {
+        return "src/main/resources/wordTemplate/image/" + fileName;
     }
 
-    public static String getWordTemplateTextUrl(String fileName) throws FileNotFoundException {
-        return ResourceUtils.getFile("classpath:wordTemplate/text/" + fileName).getAbsolutePath();
+    public static String getWordTemplateTextUrl(String fileName) {
+        return "src/main/resources/wordTemplate/text/" + fileName;
     }
 
 }

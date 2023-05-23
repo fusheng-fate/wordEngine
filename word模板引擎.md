@@ -107,7 +107,7 @@ Output:
 一个区块对由前后两个标签组成，标签由`?`开头，结束标记用`/`标识，例如`{{?Section}}` 作为sections块的开始标签，`{{/ Section}}`是结束标签，`Section`是这个Section的名称。
 区段在处理一系列文档元素时非常有用。section中的文档元素(文本、图片、表格等)可以呈现0次、1次或N次，具体取决于section的值。
 
-#### False Values or Empty collection
+#### False或者空集合
 如果区块对的值是 null 、false 或者空的集合，位于区块中的所有文档元素将不会显示，这就等同于if语句的条件为 false。
 
 
@@ -134,4 +134,115 @@ Output:
 Made it,Ma!
 Made it,Ma!
 ```
+#### 非False且不是集合
+
+如果区块对的值不为 null 、 false ，且不是集合，位于区块中的所有文档元素会被渲染一次，这就等同于if语句的条件为 true。
+
+data-model
+```java
+{
+  "person": { "name": "Sayi" }
+}
+```
+Template
+```java
+template.docx
+{{?person}}
+
+Hi {{name}}!
+
+{{/person}}
+```
+
+Output:
+
+```java
+output.docx
+Hi Sayi!
+```
+
+#### 非空集合
+如果区块对的值是一个非空集合，区块中的文档元素会被迭代渲染一次或者N次，这取决于集合的大小，类似于foreach语法。
+
+data-model
+
+```java
+{
+  "songs": [
+    { "name": "Memories" },
+    { "name": "Sugar" },
+    { "name": "Last Dance" }
+  ]
+}
+```
+
+Template
+```java
+template.docx
+{{?songs}}
+
+{{name}}
+
+{{/songs}}
+```
+Output
+
+```java
+output.docx
+Memories
+
+Sugar
+
+Last Dance
+```
+
+### 引用标签
+
+引用标签是一种特殊位置的特殊标签，提供了直接引用文档中的元素句柄的能力，这个重要的特性在我们只想改变文档中某个元素极小一部分样式和属性的时候特别有用，因为其余样式和属性都可以在模板中预置好，真正的所见即所得。
+
+引用标签是指可以将引用对象 元素替换，但是保留被替换元素的格式。
+
+### 图表
+
+图表，我们使用过aspose word, 所以这里简单对比一下，相较于aspose word来说，使用poi-tl不需要根据画图表，而是根据模板中的预设图表进行替换，不会改变模板中预设图表的结构。
+相对而言，代码变的更加简单了。(简易demo参照 test/example/ChartExample)  ChartSingleSeriesRenderData(单系列图表)  ChartMultiSeriesRenderData(多系列图表)
+
+#### 饼图
+Charts.ofPie
+
+#### 条形图
+
+Charts.ofArea  Charts.ofBar
+
+#### 柱形图
+
+Charts.ofArea  Charts.ofBar
+
+#### 折线图
+
+Charts.ofArea  Charts.ofBar
+
+
+### 配置
+
+#### spring el表达式
+
+https://docs.spring.io/spring-framework/docs/5.3.18/reference/html/core.html#expressions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

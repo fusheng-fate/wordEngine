@@ -2,6 +2,7 @@ package com.fate.poitl.example;
 
 import com.deepoove.poi.XWPFTemplate;
 import com.fate.poitl.bean.*;
+import com.fate.poitl.utils.PathUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.ResourceUtils;
@@ -57,7 +58,7 @@ public class TestTreeDataExample {
 
         data.setDate("2020-01-31");
 
-        XWPFTemplate template = XWPFTemplate.compile(ResourceUtils.getFile("classpath:wordTemplate/text/okr.docx")).render(data);
+        XWPFTemplate template = XWPFTemplate.compile(PathUtils.getWordTemplateTextUrl("okr.docx")).render(data);
         template.writeToFile("target/out_example_okr.docx");
     }
 
