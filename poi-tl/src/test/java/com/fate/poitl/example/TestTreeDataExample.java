@@ -14,9 +14,7 @@ import java.util.List;
 public class TestTreeDataExample {
 
     /**
-     * ?标识了标签的类型，表示标签是一种文本类型的标签，当使用树结构表示数据时，声明标签时需要指定标签的类型
-     * 比如此例中 文本标签 用 ? 声明，以 / 结束
-     * {{?objectives}} {{/objectives}}
+     *
      * @throws Exception
      */
     @Test
