@@ -229,6 +229,32 @@ Charts.ofArea  Charts.ofBar
 
 https://docs.spring.io/spring-framework/docs/5.3.18/reference/html/core.html#expressions
 
+### 常用插件
+
+poi-tl常用的策略插件，用来处理文本、图片、列表、表格、引用多系列图表、引用单系列图表、循环表格行、循环表格列、动态表格、引用图表插件等：
+
+- TextRenderPolicy
+
+- PictureRenderPolicy
+
+- NumberingRenderPolicy
+
+- TableRenderPolicy
+
+- MultiSeriesChartTemplateRenderPolicy
+
+- SingleSeriesChartTemplateRenderPolicy
+
+- LoopRowTableRenderPolicy
+
+- LoopColumnTableRenderPolicy
+
+- DynamicTableRenderPolicy
+
+- AbstractChartTemplateRenderPolicy
+
+
+
 
 
 
