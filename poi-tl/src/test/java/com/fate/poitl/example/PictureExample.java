@@ -20,9 +20,9 @@ public class PictureExample {
     @Test
     public void testCreatePicture() throws IOException {
         HashMap<String, Object> map = new HashMap<>() {{
-            put("watermelon",PathUtils.getWordTemplateImageUrl("watermelon.png"));
-            put("lemon",Pictures.ofLocal(PathUtils.getWordTemplateImageUrl("sob.jpeg")).size(24,24).create());
+            put("watermelon",Pictures.ofLocal(PathUtils.getWordTemplateImageUrl("large.png")).size(595, 180).create());
+            put("lemon",Pictures.ofLocal(PathUtils.getWordTemplateImageUrl("logo.png")).size(24,24).create());
         }};
-        XWPFTemplate.compile(PathUtils.getWordTemplateTextUrl("")).render(null).writeToFile(null);
+        XWPFTemplate.compile(PathUtils.getWordTemplateTextUrl("hello_poi_tl.docx")).render(map).writeToFile("target/output_picture.docx");
     }
 }
