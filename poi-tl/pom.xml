@@ -46,6 +46,52 @@
 			<artifactId>spring-expression</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>fr.opensagres.xdocreport</groupId>
+			<artifactId>fr.opensagres.poi.xwpf.converter.pdf</artifactId>
+		</dependency>
+
+		<!-- openOffice 依赖库 -->
+		<dependency>
+			<groupId>org.apache.directory.studio</groupId>
+			<artifactId>org.apache.commons.io</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.artofsolving</groupId>
+			<artifactId>jodconverter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.openoffice</groupId>
+			<artifactId>juh</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.openoffice</groupId>
+			<artifactId>unoil</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.docx4j</groupId>
+			<artifactId>docx4j-JAXB-Internal</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.docx4j</groupId>
+			<artifactId>docx4j-JAXB-ReferenceImpl</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.docx4j/docx4j-export-fo -->
+		<dependency>
+			<groupId>org.docx4j</groupId>
+			<artifactId>docx4j-export-fo</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.libreoffice</groupId>
+			<artifactId>ridl</artifactId>
+		</dependency>
+
 
 
 	</dependencies>
