@@ -76,9 +76,44 @@ soffice.exe -headless -accept="socket,host=127.0.0.1,port=8100;urp;" -nofirststa
 
 1. 启动libreOffice服务
 
+```shell
+libreoffice7.5 --headless --accept="socket,host=127.0.0.1,port=8100;urp;" --nofirststartwizard
+```
+
 2. word转pdf命令行：
+```shell
+libreoffice7.5 --invisible --convert-to pdf --outdir  "/root" "/root/testPdf.docx"
+```
 
 3. word转pdf demo
+```java
+public static void wordToPdf(String docFile,String pdfFile) throws ConnectException {
+        // 源文件目录
+        File inputFile = new File(docFile);
+        // 输出文件目录
+        File outputFile = new File(pdfFile);
+        if (!outputFile.getParentFile().exists()) {
+            outputFile.getParentFile().mkdirs();
+        }
+        // 连接openoffice服务
+        OpenOfficeConnection connection = new SocketOpenOfficeConnection(
+                "127.0.0.1", 8100);
+        connection.connect();
+        // 转换word到pdf
+        DocumentConverter converter = new StreamOpenOfficeDocumentConverter(connection);
+        converter.convert(inputFile, outputFile);
+        // 关闭连接
+        connection.disconnect();
+    }
+```
+
+4. 评测：
+    - 优势：
+        - 性能好，转换效率比较高
+        - 代码简单，可以使用命令进行转换。
+        - 支持图表，效果相对openOffice 来说要好一点
+    - 缺点：
+        - 不支持复杂图表，会出现转换完后多页的现象，不影响阅读
 
    
 
