@@ -20,11 +20,9 @@ public class ReportChartUtil {
      * @param dataMap 原始数据
      * @return
      */
-    public static HashMap<String, Object> createPieChart(String label, String chartTitle, Map<String, Number> dataMap) {
+    public static KeyValue<String, Object> createPieChart(String label, String chartTitle, Map<String, Number> dataMap) {
        KeyValue<String[], Number[]> keyValue = convertPieData(dataMap);
-        return new HashMap<>() {{
-            put(label, Charts.ofPie(chartTitle, keyValue.getKey()).series("categories", keyValue.getValue()).create());
-        }};
+       return new DefaultKeyValue<>(label, Charts.ofPie(chartTitle, keyValue.getKey()).series("categories", keyValue.getValue()).create());
     }
 
 
@@ -36,12 +34,10 @@ public class ReportChartUtil {
      * @param linkedHashMap 图表原始数据
      * @return
      */
-    public static HashMap<String, Object> createColumnChart(String label, String chartTitle, String[] categories, LinkedHashMap<String, JSONObject> linkedHashMap) {
+    public static KeyValue<String, Object> createColumnChart(String label, String chartTitle, String[] categories, LinkedHashMap<String, JSONObject> linkedHashMap) {
         Charts.ChartMultis chartMul = Charts.ofArea(chartTitle, categories);
         convertData(chartMul, categories, linkedHashMap);
-        return new HashMap<>() {{
-            put(label, chartMul.create());
-        }};
+        return new DefaultKeyValue<>(label, chartMul.create());
     }
 
     /**
@@ -52,12 +48,10 @@ public class ReportChartUtil {
      * @param linkedHashMap 图表原始数据
      * @return
      */
-    public static HashMap<String, Object> createLineChart(String label, String chartTitle, String[] categories, LinkedHashMap<String, JSONObject> linkedHashMap) {
+    public static KeyValue<String, Object> createLineChart(String label, String chartTitle, String[] categories, LinkedHashMap<String, JSONObject> linkedHashMap) {
         Charts.ChartMultis chartMul = Charts.ofLine(chartTitle, categories);
         convertData(chartMul, categories, linkedHashMap);
-        return new HashMap<>() {{
-            put(label, chartMul.create());
-        }};
+        return new DefaultKeyValue<>(label, chartMul.create());
     }
 
     /**

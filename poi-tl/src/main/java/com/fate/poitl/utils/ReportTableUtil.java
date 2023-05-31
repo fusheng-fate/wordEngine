@@ -1,7 +1,8 @@
 package com.fate.poitl.utils;
 
 import com.deepoove.poi.data.*;
-import java.util.HashMap;
+import org.apache.commons.collections4.KeyValue;
+import org.apache.commons.collections4.keyvalue.DefaultKeyValue;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ import java.util.List;
  */
 public class ReportTableUtil {
 
-    public static HashMap<String, Object> createTable(String label, List<String> headers, List<List<Object>> values) {
+    public static KeyValue<String, Object> createTable(String label, List<String> headers, List<List<Object>> values) {
        return createTable(label, headers, values, false);
     }
 
@@ -23,7 +24,7 @@ public class ReportTableUtil {
      * @param autoWidth 自动列宽
      * @return
      */
-   public static HashMap<String, Object> createTable(String label, List<String> headers, List<List<Object>> values, boolean autoWidth) {
+   public static KeyValue<String, Object> createTable(String label, List<String> headers, List<List<Object>> values, boolean autoWidth) {
        Tables.TableBuilder tableBuilder = autoWidth ? Tables.ofAutoWidth() : Tables.ofPercentWidth("100%");
        if (headers != null && !headers.isEmpty()) {
            Rows.RowBuilder of = Rows.of();
@@ -38,10 +39,6 @@ public class ReportTableUtil {
                    .forEach(rowBuilder::addCell);
            tableBuilder.addRow(rowBuilder.center().create());
        }
-       return new HashMap<>() {
-           {
-               put(label, tableBuilder.create());
-           }
-       };
+       return new DefaultKeyValue<>(label, tableBuilder.create());
    }
 }
