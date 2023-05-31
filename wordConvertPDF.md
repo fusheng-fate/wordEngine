@@ -62,6 +62,28 @@ soffice.exe -headless -accept="socket,host=127.0.0.1,port=8100;urp;" -nofirststa
         - 性能好，转换效率比较高
         - 代码简单，可以使用命令进行转换。
       - 缺点：
+        - 不支持图表，不支持并发
+   
+
+## LibreOffice
+
+  ### 安装LibreOffice
+
+- 官网链接：https://www.libreoffice.org/
+- 本次测试安装包(LibreOffice)版本：7.5.3
+
+### 功能流程
+
+1. 启动libreOffice服务
+
+2. word转pdf命令行：
+
+3. word转pdf demo
+
+   
+
+
+
 
 
 

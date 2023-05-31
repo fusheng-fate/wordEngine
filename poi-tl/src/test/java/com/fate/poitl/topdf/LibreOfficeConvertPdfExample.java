@@ -4,8 +4,12 @@ import com.artofsolving.jodconverter.DocumentConverter;
 import com.artofsolving.jodconverter.openoffice.connection.OpenOfficeConnection;
 import com.artofsolving.jodconverter.openoffice.connection.SocketOpenOfficeConnection;
 import com.artofsolving.jodconverter.openoffice.converter.OpenOfficeDocumentConverter;
+import com.artofsolving.jodconverter.openoffice.converter.StreamOpenOfficeDocumentConverter;
+import com.fate.poitl.utils.PathUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.io.File;
 import java.net.ConnectException;
@@ -19,8 +23,8 @@ import java.net.ConnectException;
 public class LibreOfficeConvertPdfExample {
 
     @Test
-    public void test2Pdf() {
-
+    public void test2Pdf() throws ConnectException {
+        wordToPdf(PathUtils.getWordTemplateTextUrl("testPdf.docx"), "target/output_libreOfficePdf.pdf");
     }
 
     public static void wordToPdf(String docFile,String pdfFile) throws ConnectException {
@@ -36,7 +40,7 @@ public class LibreOfficeConvertPdfExample {
                 "127.0.0.1", 8100);
         connection.connect();
         // 转换word到pdf
-        DocumentConverter converter = new OpenOfficeDocumentConverter(connection);
+        DocumentConverter converter = new StreamOpenOfficeDocumentConverter(connection);
         converter.convert(inputFile, outputFile);
         // 关闭连接
         connection.disconnect();

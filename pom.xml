@@ -126,6 +126,12 @@
                 <version>7.5.3</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.aspose</groupId>
+                <artifactId>aspose-words</artifactId>
+                <version>23.5</version>
+            </dependency>
+
 
         </dependencies>
     </dependencyManagement>
