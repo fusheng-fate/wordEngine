@@ -20,6 +20,8 @@
         <logback.version>1.2.3</logback.version>
         <spring.el.version>5.3.18</spring.el.version>
         <commons-io.version>2.11.0</commons-io.version>
+        <jodconverter.version>2.2.2</jodconverter.version>
+        <libreofiice.ridl.version>7.5.3</libreofiice.ridl.version>
     </properties>
 
     <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
@@ -75,10 +77,11 @@
                 <version>2.4</version>
             </dependency>
 
+            <!-- 2.2版本的依赖在maven中央仓库不存在该版本，需在官网下载jar后，依赖进本地仓库，jar包 [src/main/resources/lib/jodconverter-2.2.2.jar]-->
             <dependency>
                 <groupId>com.artofsolving</groupId>
                 <artifactId>jodconverter</artifactId>
-                <version>2.2.2</version>
+                <version>${jodconverter.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/org.openoffice/juh -->
@@ -130,9 +133,10 @@
             <dependency>
                 <groupId>org.libreoffice</groupId>
                 <artifactId>ridl</artifactId>
-                <version>7.5.3</version>
+                <version>${libreoffice.ridl.version}</version>
             </dependency>
 
+            <!-- aspose word 23.5 -->
             <dependency>
                 <groupId>com.aspose</groupId>
                 <artifactId>aspose-words</artifactId>
