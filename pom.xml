@@ -10,8 +10,8 @@
     <packaging>pom</packaging>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <springboot.version>2.7.11</springboot.version>
         <poi_tl.version>1.12.1</poi_tl.version>
         <apache.poi.version>5.2.2</apache.poi.version>
@@ -21,7 +21,7 @@
         <spring.el.version>5.3.18</spring.el.version>
         <commons-io.version>2.11.0</commons-io.version>
         <jodconverter.version>2.2.2</jodconverter.version>
-        <libreofiice.ridl.version>7.5.3</libreofiice.ridl.version>
+        <libreoffice.ridl.version>7.5.3</libreoffice.ridl.version>
     </properties>
 
     <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->

@@ -114,4 +114,17 @@ public class ReportColumnUtil {
         }
     }
 
+    /**
+     * 插入图片
+     * @param label
+     * @param url
+     * @param width
+     * @param height
+     * @return
+     */
+
+    public static KeyValue<String, Object> createPictureByUrl(String label, String url, int width, int height) {
+        return new DefaultKeyValue<>(label, Pictures.ofUrl(url).size(width, height).create());
+    }
+
 }

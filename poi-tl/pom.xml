@@ -14,7 +14,7 @@
     <packaging>jar</packaging>
 
 	<properties>
-		<java.version>17</java.version>
+		<java.version>11</java.version>
 		<springboot.version>2.7.12</springboot.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.test.failure.ignore>true</maven.test.failure.ignore>
