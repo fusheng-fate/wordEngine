@@ -8,6 +8,7 @@ import com.deepoove.poi.data.Pictures;
 import com.deepoove.poi.data.Texts;
 import com.deepoove.poi.data.style.BorderStyle;
 import com.deepoove.poi.data.style.ParagraphStyle;
+import com.deepoove.poi.data.style.Style;
 import com.deepoove.poi.policy.ParagraphRenderPolicy;
 import com.deepoove.poi.xwpf.XWPFShadingPattern;
 import com.fate.poitl.utils.PathUtils;
@@ -76,5 +77,21 @@ public class ParagraphExample {
                     put(styleParagraph.getKey(), styleParagraph.getValue());
                     put(styleParagraph1.getKey(), styleParagraph1.getValue());
                 }}).writeToFile("target/out_render_paragraph.docx");
+    }
+
+    @Test
+    public void testTitle() throws IOException {
+        Map<String, Object> data = new HashMap<>();
+        Configure config = Configure.builder().bind("title", new ParagraphRenderPolicy()).build();
+        ParagraphStyle paragraphStyle = new ParagraphStyle();
+        paragraphStyle.setStyleId("2");
+//        Style style = new Style();
+//        style.setFontFamily("宋体");
+//        style.setBold(true);
+//        style.setFontSize(24);
+//        paragraphStyle.setGlyphStyle(style);
+        ParagraphRenderData renderData = Paragraphs.of().addText("测试标题").paraStyle(paragraphStyle).create();
+        data.put("title", renderData);
+        XWPFTemplate.compile(PathUtils.getWordTemplateTextUrl("aa.docx"), config).render(data).writeToFile("target/out_toc.docx");
     }
 }
